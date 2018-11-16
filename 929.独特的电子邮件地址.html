@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>929.独特的电子邮件地址</title>
+<script>
+/**
+ * @param {string[]} emails
+ * @return {number}
+ */
+ var numUniqueEmails = function(emails) {
+    if(! emails instanceof Array ){
+        return;
+    }
+    for (var i = 0; i<emails.length;i++) {
+        var left = String(emails[i]).split("@")[0]
+        var right = String(emails[i]).split("@")[1];
+        left.replace(/^[^+]*(?=.)/,function($1){
+        left = $1.replace(/\./g,"");
+        });
+        emails[i] = left + "@" + right;
+        console.log(emails[i]);
+    }
+    /**
+     * 数组去重
+     */
+    var arr = [];
+    for (var i = 0, len = emails.length; i < len; i++) {
+        var current = emails[i];
+        if (arr.indexOf(current) === -1) {
+            arr.push(current)
+        }
+    }
+    return arr.length;
+};
+var arr = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"];
+numUniqueEmails(arr)
+</script>
+</head>
+<body>
+
+<h1>我的第一个 JavaScript 程序</h1>
+<p id="demo">这是一个段落</p>
+
+</body>
+</html>
