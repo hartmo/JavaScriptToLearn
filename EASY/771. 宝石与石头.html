@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>771. 宝石与石头</title>
+
+</head>
+<body>
+<p id="demo">771. 宝石与石头</p>
+<div>答案是：<span id="answer"></span></div>
+<script>
+  /**
+   * @param {string} J
+   * @param {string} S
+   * @return {number}
+   */
+   var numJewelsInStones = function(J, S) {
+      var Jarr = J.split("");
+      var Sarr = S.split("");
+      var num = 0;
+      for (var i = 0; i < Jarr.length; i++){
+          for (var m = 0; m < Sarr.length; m++){
+              if (Jarr[i] === Sarr[m]){
+                  num++;
+              }
+          }
+      }
+      return num;
+  };
+  var J = "aA";
+  var S = "aAAbbbb";
+  var answer = numJewelsInStones(J,S)
+  document.getElementById("answer").innerHTML = String(answer);
+  </script>
+</body>
+</html>
