@@ -17,11 +17,8 @@
           return;
       }
       for (var i = 0; i < emails.length;i++) {
-          var left = String(emails[i]).split("@")[0]
+          var left = String(emails[i]).split("@")[0].split("+")[0].replace(/\./g,"")
           var right = String(emails[i]).split("@")[1];
-          left.replace(/^[^+]*(?=.)/,function($1){
-          left = $1.replace(/\./g,"");
-          });
           emails[i] = left + "@" + right;
       }
       /**
@@ -37,7 +34,7 @@
       return arr.length;
   };
   var arr = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"];
-  var answer = numUniqueEmails(J,S)
+  var answer = numUniqueEmails(arr)
   document.getElementById("answer").innerHTML = answer;
   </script>
 </body>

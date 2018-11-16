@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>204. 计数质数</title>
+<style>
+#answerWarp{
+  display: none;
+}
+</style>
+</head>
+<body>
+<p id="demo">204.计数质数</p>
+<div class="echo">
+  <input type="text" id="num" value="10">
+  <input type="button" id="submit" value="提交">
+</div>
+<div id="answerWarp">答案是：<span id="answer"></span></div>
+<script>
+  /**
+   * @param {string} J
+   * @param {string} S
+   * @return {number}
+   */
+   var countPrimes = function(number) {
+      var num = 0;
+      for (var i = 0; i < number; i++){
+        if(!/^1?$|^(11+?)\1+$/.test(Array(i + 1).join('1'))){
+          num ++;
+        }
+      }
+      return num;
+  };
+  document.getElementById('submit').addEventListener('click',function(){
+  var num = document.getElementById('num').value;
+  document.getElementById("answerWarp").style.display="block"
+  var answer = countPrimes(num)
+  document.getElementById("answer").innerHTML = answer;
+  })
+  </script>
+</body>
+</html>
